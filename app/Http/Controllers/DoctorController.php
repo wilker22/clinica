@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DoctorRequest;
+use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -13,7 +16,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('admin.doctor.index');
     }
 
     /**
@@ -23,7 +27,8 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        return view('admin.doctor.create');
+        $roles = Role::where('name', "!=", 'patient')->get();
+        return view('admin.doctor.create', compact('roles'));
     }
 
     /**
@@ -32,9 +37,20 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DoctorRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $image = $request->file('image');
+        $name = $image->hashName();
+        $destination = public_path('/images');
+        $image->move($destination, $name);
+
+        $data['image'] = $name;
+        $data['password'] = bcrypt($request->password);
+        User::create($data);
+
+        return redirect()->back()->with('message', 'Doctor added successfully!');
     }
 
     /**
