@@ -46,7 +46,8 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="">Full Name</label>
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Doctor name">
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Doctor name" value="{{ old('name') }}">
+
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -56,7 +57,8 @@
 
                             <div class="col-lg-6">
                                 <label for="">E-mail</label>
-                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Doctor e-mail">
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Doctor e-mail" value="{{ old('email') }}">
+
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -69,6 +71,7 @@
                             <div class="col-lg-6">
                                 <label for="">Password</label>
                                 <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Doctor Password">
+
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -83,6 +86,7 @@
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
+
                                 @error('gender')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -94,7 +98,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="">Education</label>
-                                <input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="Doctor Highest Degree">
+                                <input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="Doctor Highest Degree" value="{{ old('education') }}">
                                 @error('education')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -104,7 +108,7 @@
 
                             <div class="col-lg-6">
                                 <label for="">Address</label>
-                                <input type="text" name="address" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="Doctor Address" ></input>
+                                <input type="text" name="address" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="Doctor Address" value="{{ old('address') }}" ></input>
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -116,7 +120,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="">Specilist</label>
-                                <input type="text" name="department" id="department" class="form-control @error('department') is-invalid @enderror" placeholder="Doctor Highest Degree">
+                                <input type="text" name="department" id="department" class="form-control @error('department') is-invalid @enderror" placeholder="Doctor Highest Degree" value="{{ old('department') }}">
                                 @error('department')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -126,7 +130,7 @@
 
                             <div class="col-lg-6">
                                 <label for="">Phone Number</label>
-                                <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="Doctor Address" ></input>
+                                <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="Doctor Address" value="{{ old('phone_number') }}" ></input>
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -169,7 +173,8 @@
 
                         <div class="form-group">
                             <label for="exampleTextarea1">About</label>
-                            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4"></textarea>
+                            <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description') }}                                   </textarea>
+
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
