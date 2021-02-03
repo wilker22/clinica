@@ -118,6 +118,11 @@
 
                         <div class="row">
                             <div class="col-md-12">
+                                @if (Session::has('message'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('message')}}
+                                    </div>
+                                @endif
                                 <div class="card">
                                     <div class="card-header"><h3>Data Table</h3></div>
                                     <div class="card-body">
@@ -129,8 +134,9 @@
                                                     <th>Email</th>
                                                     <th>Address</th>
                                                     <th>Phone Number</th>
+                                                    <th>Department</th>
                                                     <th class="nosort">&nbsp;</th>
-                                                    <th class="nosort">&nbsp;</th>                                          <th class="nosort">&nbsp;</th>
+                                                    <th class="nosort">&nbsp;</th>
 
                                                 </tr>
                                             </thead>
@@ -143,14 +149,19 @@
                                                             <td>{{$doctor->email}}</td>
                                                             <td>{{$doctor->address}}</td>
                                                             <td>{{$doctor->phone_number}}</td>
+                                                            <td>{{$doctor->Department}}</td>
                                                             <td>
                                                                 <div class="table-actions">
-                                                                    <a href="#"><i class="ik ik-eye"></i></a>
-                                                                    <a href="#"><i class="ik ik-edit-2"></i></a>
+                                                                    <a href="#" data-toggle="modal" data-target="#exampleModal{{$doctor->id}}"><i class="ik ik-eye"></i></a>
+                                                                    <a href="{{ route('doctor.edit', $doctor->id) }}"><i class="ik ik-edit-2"></i></a>
                                                                     <a href="#"><i class="ik ik-trash-2"></i></a>
                                                                 </div>
                                                             </td>
                                                         </tr>
+
+                                                        <!-- View Modal -->
+                                                        @include('admin.doctor.modal')
+
                                                     @endforeach
                                                 @else
 

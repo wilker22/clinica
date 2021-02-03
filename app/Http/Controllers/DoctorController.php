@@ -72,7 +72,9 @@ class DoctorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $doctor = User::find($id);
+
+        return view('admin.doctor.edit', compact('doctor'));
     }
 
     /**
@@ -84,7 +86,53 @@ class DoctorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validateUpdate($request, $id);
+        $data = $request->all();
+        $doctor = User::find($id);
+
+        $imageName = $doctor->image;
+        $userPassword = $doctor->password;
+
+        //tratamento da imagem
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $imageName = $image->hashName();
+            $destination = public_path('/images');
+            $image->move($destination, $imageName);
+
+        }
+        $data['image'] = $imageName;
+
+        //tratamento de senha
+        if($request->password){
+            $data['password'] = bcrypt($request->password);
+        }else{
+            $data['password'] = $userPassword;
+        }
+
+        $doctor->update($data);
+
+        return redirect()->route('doctor.index')->with('message', 'Doctor updated!');
+
+
+    }
+
+    public function validateUpdate($request, $id)
+    {
+        return $this->validate($request, [
+                'name' => 'required',
+                'email' => 'required|unique:users,email,'.$id,
+
+                'gender' => 'required',
+                'education' => 'required',
+                'address' => 'required',
+                'department' => 'required',
+                'phone_number' => 'required',
+                'image' => 'mimes:jpeg,jpg,png',
+                'role_id' => 'required',
+                'description' => 'required',
+        ]);
+
     }
 
     /**
