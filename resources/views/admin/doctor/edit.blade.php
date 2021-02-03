@@ -85,7 +85,7 @@
                                 <label for="">Gender</label>
                                 <select name="gender" id="gender" class="form-control @error('gender') is-invalid @enderror">
                                     @foreach (['male', 'female'] as $gender)
-                                        <option value="{{$gender}}" @if($doctor->gender==$gender) selected @endif</option>)>{{$gender}}</option>
+                                        <option value="{{$gender}}" @if($doctor->gender==$gender) selected @endif</option>{{$gender}}</option>
                                     @endforeach
                                 </select>
 
@@ -125,7 +125,7 @@
                                 <select type="text" name="department" id="department" class="form-control">
 
                                     @foreach (['Cardiologist', 'Neurologist', 'Ophtalmologist', 'Family-Physician'] as $department)
-                                        <option value="{{$department}}" @if($doctor->department==$department) selected @endif</option>)>{{$department}}</option>
+                                        <option value="{{$department}}" @if($doctor->department==$department) selected @endif</option>{{$department}}</option>
                                     @endforeach
 
                                 </select>
@@ -166,9 +166,11 @@
                                     <label for="role_id">Role</label>
                                     <select name="role_id" id="role_id" class="form-control @error('role_id') is-invalid @enderror">
                                         <option value="">Select Role...</option>
-                                        @foreach ($roles as $role)
-                                            <option value="{{ $role->id }}" @if($doctor->role_id==$role->id) selected @endif>{{ $role->name }}</option>
-                                        @endforeach
+
+                                            @foreach(App\Role::where('name','!=','patient')->get() as $role)
+                                                <option value="{{$role->id}}"@if($doctor->role_id==$role->id)selected @endif>{{$role->name}}</option>
+                                            @endforeach
+
                                     </select>
                                     @error('role_id')
                                         <span class="invalid-feedback" role="alert">

@@ -149,12 +149,12 @@
                                                             <td>{{$doctor->email}}</td>
                                                             <td>{{$doctor->address}}</td>
                                                             <td>{{$doctor->phone_number}}</td>
-                                                            <td>{{$doctor->Department}}</td>
+                                                            <td>{{$doctor->department}}</td>
                                                             <td>
                                                                 <div class="table-actions">
                                                                     <a href="#" data-toggle="modal" data-target="#exampleModal{{$doctor->id}}"><i class="ik ik-eye"></i></a>
                                                                     <a href="{{ route('doctor.edit', $doctor->id) }}"><i class="ik ik-edit-2"></i></a>
-                                                                    <a href="#"><i class="ik ik-trash-2"></i></a>
+                                                                    <a href="{{ route('doctor.show', $doctor->id) }}"><i class="ik ik-trash-2"></i></a>
                                                                 </div>
                                                             </td>
                                                         </tr>

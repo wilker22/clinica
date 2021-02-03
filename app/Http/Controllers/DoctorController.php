@@ -16,7 +16,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = User::where('name','!=','patient')->get();
+        $doctors = User::where('role_id','!=','3')->get();
         return view('admin.doctor.index', compact('doctors'));
     }
 
@@ -41,16 +41,13 @@ class DoctorController extends Controller
     {
         $data = $request->all();
 
-        $image = $request->file('image');
-        $name = $image->hashName();
-        $destination = public_path('/images');
-        $image->move($destination, $name);
+        $name = (new User)->userAvatar($request);
 
         $data['image'] = $name;
         $data['password'] = bcrypt($request->password);
         User::create($data);
 
-        return redirect()->back()->with('message', 'Doctor added successfully!');
+        return redirect()->route('doctor.index')->with('message', 'Doctor added successfully!');
     }
 
     /**
@@ -61,7 +58,8 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        //
+        $doctor = User::find($id);
+        return view('admin.doctor.delete', compact('doctor'));
     }
 
     /**
@@ -95,11 +93,8 @@ class DoctorController extends Controller
 
         //tratamento da imagem
         if($request->hasFile('image')){
-            $image = $request->file('image');
-            $imageName = $image->hashName();
-            $destination = public_path('/images');
-            $image->move($destination, $imageName);
-
+            $imageName = (new User)->userAvatar($request);
+            unlink(public_path('images/'.$doctor->image));
         }
         $data['image'] = $imageName;
 
@@ -143,6 +138,16 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(auth()->user('id') == $id){
+            abort(401);
+        }
+
+        $doctor = User::find($id);
+        $userDelete = $doctor->delete();
+        if($userDelete){
+            unlink(public_path('images/'.$doctor->image));
+        }
+
+        return redirect()->route('doctor.index')->with('message', 'Doctor '. $doctor->name . ' deleted!');
     }
 }
