@@ -19,9 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -34,4 +31,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::resource('doctor', 'DoctorController');
 });
+
+Route::resource('appointment', 'AppointmentController');
 
