@@ -19,8 +19,10 @@ class Admin
         //dd(Auth::user()->role->name);
         if(Auth::user()->role->name == "admin"){
             return $next($request);
+        }else{
+            return redirect()->back();
         }
-        abort(403);
+
 
     }
 }
