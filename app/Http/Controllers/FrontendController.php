@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use App\Mail\AppointmentMail;
+use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller
 {
@@ -63,7 +64,6 @@ class FrontendController extends Controller
 
         //send e-mail notification
         $doctorName = User::where('id', $request->doctorId)->first();
-
         $mailData = [
             'name' => auth()->user()->name,
             'time' => $request->time,
@@ -72,9 +72,9 @@ class FrontendController extends Controller
         ];
 
         try{
-            \Mail::to(auth()->user()->email)->send(new AppointmentMail($mailData));
+            Mail::to(auth()->user()->email)->send(new AppointmentMail($mailData));
         }catch(\Exception $e){
-            echo "erro";
+
         }
 
         return redirect()->back()->with('message', 'Your appointment was booked!');
@@ -86,5 +86,11 @@ class FrontendController extends Controller
                     ->where('user_id', auth()->user()->id)
                     ->whereDate('created_at', date('Y-m-d'))
                     ->exists();
+    }
+
+    public function myBookings()
+    {
+        $appointments = Booking::latest()->where('user_id', auth()->user()->id)->get();
+        return view('booking.index', compact('appointments'));
     }
 }

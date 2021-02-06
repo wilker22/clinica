@@ -74,5 +74,6 @@ class RegisterController extends Controller
             'role_id' => $role->id,
             'gender' => $data['gender']
         ]);
+
     }
 }
