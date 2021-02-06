@@ -1,100 +1,74 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <img src="{{asset('banner/online-medicine-concept_160901-152.jpg')}}" class="img-fluid" style="border:1px solid #ccc" alt="">
+        </div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <div class="col-md-6">
+            <h2>Create an acount & Book Appointment</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate quisquam mollitia tenetur est odit delectus modi reprehenderit suscipit, libero optio eum explicabo recusandae asperiores illo, saepe neque, aliquid illum. Blanditiis!
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+            </p>
+            <div class="mt-5">
+                <button class="btn btn-success">Register as a patient</button>
+                <button class="btn btn-secondary">Login</button>
+            </div>
+        </div>
+    </div>
+    <hr>
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+    <!-- search doctor-->
+    <div class="card">
+        <div class="card-body">
+            <div class="car-header">Find Doctors</div>
+            <div class="car-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <input type="text" name="date" id="datepicker" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary">Find Doctors</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+
+    <!-- display doctors-->
+    <div class="card">
+        <div class="card-body">
+            <div class="car-header">Doctors</div>
+            <div class="car-body">
+                <table class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Expertise</th>
+                            <th>Book</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td><img src="#" width="100px" style="border-radius: 50%" alt=""></td>
+                            <td>Nome</td>
+                            <td>Especilidade</td>
+                            <td>
+                                <button class="btn btn-success">Book appoitment</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
