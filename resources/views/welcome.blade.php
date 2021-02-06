@@ -14,30 +14,35 @@
 
             </p>
             <div class="mt-5">
-                <button class="btn btn-success">Register as a patient</button>
-                <button class="btn btn-secondary">Login</button>
+                <a href="{{ url('/register')}}">
+                    <button class="btn btn-success">Register as a patient</button>
+                </a>
+                <a href="{{ url('/login')}}">
+                    <button class="btn btn-secondary">Login</button>
+                </a>
             </div>
         </div>
     </div>
     <hr>
 
     <!-- search doctor-->
-    <div class="card">
-        <div class="card-body">
-            <div class="car-header">Find Doctors</div>
-            <div class="car-body">
-                <div class="row">
-                    <div class="col-md-8">
-                        <input type="text" name="date" id="datepicker" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-primary">Find Doctors</button>
+    <form action="{{url('/')}}" method="get">
+        <div class="card">
+            <div class="card-body">
+                <div class="car-header">Find Doctors</div>
+                <div class="car-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" name="date" id="datepicker" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-primary">Find Doctors</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </form>
     <!-- display doctors-->
     <div class="card">
         <div class="card-body">
@@ -54,16 +59,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($doctors as $doctor)
                         <tr>
                             <th>1</th>
-                            <td><img src="#" width="100px" style="border-radius: 50%" alt=""></td>
-                            <td>Nome</td>
-                            <td>Especilidade</td>
+                            <td><img src="{{ asset('images')}}/{{$doctor->doctor->image}}" width="100px" style="border-radius: 50%" alt=""></td>
+                            <td>{{$doctor->doctor->name}}</td>
+                            <td>{{$doctor->doctor->department}}</td>
                             <td>
-                                <button class="btn btn-success">Book appoitment</button>
+                               <a href="{{ route('create.appointment', [$doctor->user_id, $doctor->date])}}">
+                                    <button class="btn btn-success">Book appoitment</button>
+                               </a>
                             </td>
                         </tr>
-
+                        @empty
+                        <td>Nunhum Médico agendado para hoje!!</td>
+                        @endforelse
                     </tbody>
 
                 </table>
