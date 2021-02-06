@@ -85,8 +85,18 @@
 
     <script>
         $( function() {
-          $( "#datepicker" ).datepicker();
-        } );
-        </script>
+          $( "#datepicker" ).datepicker({
+              dateFormat: "dd-mm-yy"
+          }).val();
+        });
+    </script>
+
+    <style type="text/css">
+        .ui-corner-all{
+            background: rgb(41, 156, 18);
+            color: #fff;
+        }
+    </style>
+
 </body>
 </html>
