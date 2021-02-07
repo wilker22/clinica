@@ -9,7 +9,6 @@ use App\User;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use App\Mail\AppointmentMail;
-use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller
 {
@@ -71,10 +70,11 @@ class FrontendController extends Controller
             'doctorName' =>  $doctorName->name
         ];
 
-        try{
-            Mail::to(auth()->user()->email)->send(new AppointmentMail($mailData));
-        }catch(\Exception $e){
 
+        try{
+            \Mail::to(auth()->user()->email)->send(new AppointmentMail($mailData));
+        }catch(\Exception $e){
+            return $e;
         }
 
         return redirect()->back()->with('message', 'Your appointment was booked!');
