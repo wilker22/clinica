@@ -24,9 +24,15 @@ class PatientlistController extends Controller
     public function toggleStatus($id)
     {
         $booking = Booking::find($id);
-        $booking->status != $booking->status;
+        $booking->status =! $booking->status;
         $booking->save();
         return redirect()->back();
+    }
+
+    public function allTimeAppointment()
+    {
+        $bookings = Booking::latest()->paginate(5);
+        return view('admin.patientlist.index', compact('bookings'));
     }
 
 }
