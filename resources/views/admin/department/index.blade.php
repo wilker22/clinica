@@ -49,7 +49,7 @@
                         <th>Name</th>
                         
                         <th class="nosort">&nbsp;</th>
-                        <th class="nosort">&nbsp;</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
@@ -60,14 +60,16 @@
                             <td>{{$department->department}}</td>
                             <td>
                                 <div class="table-actions">
+                                    
                                     <a href="{{route('department.edit',[$department->id])}}"><i class="ik ik-edit-2"></i></a>
-                                    <form action="{{route('department.destroy',[$department->id])}}" method="post">@csrf
+                                    <form action="{{route('department.destroy',$department->id)}}" method="post">
+                                        @csrf
                                         @method('DELETE')
-                                        <button type="submit"><i class="ik ik-trash-2"></i></button>
+                                        <button type="submit" ><i class="ik ik-trash-2"></i></button>
                                     </form>
                                 </div>
                             </td>
-                            <td>x</td>
+                            
 
                         </tr>
                         @endforeach

@@ -122,10 +122,9 @@
                                 <label for="">Specilist</label>
                                 <select name="department" class="form-control" id="department">
                                     <option value="">Please Select...</option>
-                                    <option value="Cardiologist">Cardiologist</option>
-                                    <option value="Neurologist">Neurologist</option>
-                                    <option value="Ophtalmologist">Ophtalmologist</option>
-                                    <option value="Family-Physician">Family-Physician</option>
+                                    @foreach(App\Department::all() as $department)
+                                        <option value="{{$department->department}}">{{$department->department}}</option>
+                                    @endforeach
                                 </select>
                                 @error('department')
                                     <span class="invalid-feedback" role="alert">
