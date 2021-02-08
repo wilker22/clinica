@@ -5,7 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Appointments ({{$bookings->count()}})</div>
+              
+              @if(Session::has('message'))
+                <div class="alert alert-success">
+                  {{Session::get('message')}}
+                </div>
+              @endif
+              
+              <div class="card-header">Appointments ({{$bookings->count()}})</div>
                
 
                 <div class="card-body">
@@ -14,6 +21,7 @@
                           <tr>
                             <th>#</th>
                             <th scope="col">Photo</th>
+                            <th scope="col">User ID</th>
                             <th scope="col">Date</th>
                             <th scope="col">User</th>
                             <th scope="col">E-Mail</th>
@@ -31,6 +39,7 @@
                             <td>
                               <img src="localhost/doctor/public/profile/{{$booking->user->image}}" width="80" style="border-radius: 50%;">
                             </td>
+                            <td>{{ $booking->user_id }}</td>
                             <td>{{ $booking->date }}</td>
                             <td>{{ $booking->user->name }}</td>
                             <td>{{ $booking->user->email }}</td>
@@ -44,10 +53,14 @@
                             </td>
                             <td>
                                <!-- Button trigger modal -->
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                  Escrever Prescrição
-                              </button> 
-                              
+                               @if(!App\Prescription::where('date',date('d-m-Y'))->where('doctor_id',auth()->user()->id)->where('user_id',$booking->user->id)->exists())
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $booking->user_id }}">
+                                      Escrever Prescrição
+                                  </button>
+                                  @include('prescription.form')
+                                @else
+                                 VIEW
+                                @endif
                             </td>
                           </tr>
 
@@ -66,56 +79,6 @@
     </div>
 </div>
 
-@if(count($bookings) > 0)
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Prescrição</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          
-          <input type="hidden" name="user_id" value="{{$booking->user_id}}">
-          <input type="hidden" name="doctor_id" value="{{$booking->doctor_id}}">
-          <input type="hidden" name="date" value="{{$booking->date}}">
-          <div class="form-group">
-            <label for="">Disease</label>
-            <input type="text" name="name_of_disease" class="form-control" placeholder="Disease">
-          </div>
 
-          <div class="form-group">
-            <label for="">Symptoms</label>
-            <textarea name="symptoms" class="form-control" required placeholder="Symptoms"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="">Procedure to use medicine</label>
-            <textarea name="procedure_to_use_medicine" class="form-control" required placeholder="Procedures with medicines"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="">Feedback</label>
-            <textarea cols="30" rows=3" name="feedback" class="form-control" required placeholder="Feedback"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="">Signature</label>
-            <input type="text" name="signature" class="form-control" required>
-          </div>
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-@endif
 
 @endsection

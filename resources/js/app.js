@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('find-doctor', require('./components/FindDoctor.vue').default);
+Vue.component('add-btn', require('./components/AddBtn.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

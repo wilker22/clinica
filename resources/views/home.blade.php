@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <!--<add-btn></add-btn>-->
                 </div>
             </div>
         </div>
