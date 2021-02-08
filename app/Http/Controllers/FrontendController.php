@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use App\Mail\AppointmentMail;
+use App\Prescription;
 
 class FrontendController extends Controller
 {
@@ -92,6 +93,12 @@ class FrontendController extends Controller
     {
         $appointments = Booking::latest()->where('user_id', auth()->user()->id)->get();
         return view('booking.index', compact('appointments'));
+    }
+
+    public function myPrescription()
+    {
+        $prescriptions = Prescription::where('user_id', auth()->user()->id)->get();
+        return view('my-prescription', compact('prescriptions'));
     }
 
     public function doctorToday(Request $request)

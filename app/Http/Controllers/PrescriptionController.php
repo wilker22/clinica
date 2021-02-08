@@ -10,21 +10,32 @@ class PrescriptionController extends Controller
 {
     public function index()
     {
-        // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
-        date_default_timezone_set('America/Sao_Paulo');
-        $bookings = Booking::where('date', date('d-m-Y'))
-                           ->where('doctor_id', auth()->user()->id)
-                           ->where('status', 1)->get();
-        
-        return view('prescription.index', compact('bookings'));
+
+    	date_default_timezone_set('Australia/Melbourne');
+		$bookings =  Booking::where('date',date('d-m-Y'))->where('status',1)->where('doctor_id',auth()->user()->id)->get();
+		return view('prescription.index',compact('bookings'));
     }
-    
+   
+
     public function store(Request $request)
     {
-        $data = $request->all();
-        $data['medicine'] = implode(',',$request->medicine);
-        Prescription::create($data);
-        return redirect()->back()->with('message', 'Prescription Created!');
+    	$data  = $request->all();
+    	$data['medicine'] = implode(',',$request->medicine);
+    	Prescription::create($data);
+    	return redirect()->back()->with('message','Prescription created');
+    }
+
+    public function show($userId,$date)
+    {
+        $prescription = Prescription::where('user_id',$userId)->where('date',$date)->first();
+        return view('prescription.show',compact('prescription'));
+    }
+
+    //get all patients from prescription table
+    public function patientsFromPrescription()
+    {
+        $patients = Prescription::get();
+        return view('prescription.all',compact('patients'));
     }
 
 }

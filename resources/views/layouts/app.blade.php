@@ -51,6 +51,12 @@
                             </li>
                         @endif
 
+                        @if(auth()->check() && auth()->user()->role->name === 'patient')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('my.prescription') }}">{{ __('My Prescriptions') }}</a>
+                            </li>
+                        @endif
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

@@ -51,6 +51,16 @@
                         </div>
                     @endif
 
+                    @if(auth()->check() && auth()->user()->role->name == 'doctor')
+                        <div class="nav-item has-sub">
+                            <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Pacientes</span></a>
+                            <div class="submenu-content">
+                                <a href="{{ route('patients.today') }}" class="menu-item">Pacientes(Hoje)</a>
+                                <a href="{{ route('prescribed.patients') }}" class="menu-item">Pacientes(Prescrições)</a>
+                            </div>
+                        </div>
+                    @endif
+
                     <div class="nav-item active">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); 
                                                                  document.getElementById('logout-form').submit();">
