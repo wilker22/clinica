@@ -55,7 +55,7 @@ class AppointmentController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('message', 'Appointment create for: ' . $request->date);
+        return redirect()->back()->with('message', 'Agendamento Cadastrado para: ' . $request->date);
     }
 
     /**
@@ -87,7 +87,7 @@ class AppointmentController extends Controller
                                   ->where('user_id', auth()->user()->id)
                                   ->first();
         if(!$appointment){
-            return redirect()->to('/appointment')->with('errmessage', 'Appointment time not available for this date');
+            return redirect()->to('/appointment')->with('errmessage', 'Horário não disponível para esta date');
         }
 
         $appointmentId = $appointment->id;
@@ -111,7 +111,7 @@ class AppointmentController extends Controller
             ]);
         }
 
-        return redirect()->route('appointment.index')->with('message', 'Appointment time updated!!');
+        return redirect()->route('appointment.index')->with('message', 'Horário Alterado!!');
     }
 
     /**

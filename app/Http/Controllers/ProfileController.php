@@ -20,7 +20,7 @@ class ProfileController extends Controller
         ]);
         
         User::where('id', auth()->user()->id)->update($request->except('_token'));
-        return redirect()->back()->with('message', 'User updated!!');
+        return redirect()->back()->with('message', 'Usuário Atualizado com sucesso!!');
     }
 
     public function profilePic(Request $request)
@@ -37,6 +37,6 @@ class ProfileController extends Controller
             $user = User::where('id', auth()->user()->id)->update(['image' => $name]);
 
         }
-        return redirect()->back()->with('message', 'User updated!!');
+        return redirect()->back()->with('message', 'Foto Alterada com sucesso!!');
     }
 }

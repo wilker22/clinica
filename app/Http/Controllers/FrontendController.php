@@ -47,7 +47,7 @@ class FrontendController extends Controller
         $request->validate(['time'=> 'required']);
         $check = $this->checkBookingTimeInterval();
         if($check){
-            return redirect()->back()->with('errmessage', 'You alredy made an appointment. Please waite to make next appointment!');
+            return redirect()->back()->with('errmessage', 'Você já tem agendamento para hoje!');
         }
 
         Booking::create([
@@ -78,7 +78,7 @@ class FrontendController extends Controller
             return $e;
         }
 
-        return redirect()->back()->with('message', 'Your appointment was booked!');
+        return redirect()->back()->with('message', 'Seu Agendamento foi confirmado!');
     }
 
     public function checkBookingTimeInterval()

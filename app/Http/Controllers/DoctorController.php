@@ -47,7 +47,7 @@ class DoctorController extends Controller
         $data['password'] = bcrypt($request->password);
         User::create($data);
 
-        return redirect()->route('doctor.index')->with('message', 'Doctor added successfully!');
+        return redirect()->route('doctor.index')->with('message', 'Médico Cadastrado com sucesso!');
     }
 
     /**
@@ -107,7 +107,7 @@ class DoctorController extends Controller
 
         $doctor->update($data);
 
-        return redirect()->route('doctor.index')->with('message', 'Doctor updated!');
+        return redirect()->route('doctor.index')->with('message', 'Médico Atualizado com sucesso!');
 
 
     }
@@ -148,6 +148,6 @@ class DoctorController extends Controller
             unlink(public_path('images/'.$doctor->image));
         }
 
-        return redirect()->route('doctor.index')->with('message', 'Doctor '. $doctor->name . ' deleted!');
+        return redirect()->route('doctor.index')->with('message', 'Médico: '. $doctor->name . ' removido!');
     }
 }

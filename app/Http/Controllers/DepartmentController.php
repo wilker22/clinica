@@ -43,7 +43,7 @@ class DepartmentController extends Controller
             'department' => 'required'
         ]);
         Department::create($request->all());
-        return redirect()->route('department.index')->with('message', 'Department Created!');
+        return redirect()->route('department.index')->with('message', 'Departamento Cadastrado!');
     }
 
     /**
@@ -84,7 +84,7 @@ class DepartmentController extends Controller
         $department = Department::find($id);
         $department->department = $request->department;
         $department->save();
-        return redirect()->route('department.index')->with('message', 'Department Updated');
+        return redirect()->route('department.index')->with('message', 'Departamento Alterado!');
     }
 
     /**
@@ -98,6 +98,6 @@ class DepartmentController extends Controller
         $department = Department::find($id);
         
         $department->delete();
-        return redirect()->route('department.index')->with('message', 'Department Deleted!');
+        return redirect()->route('department.index')->with('message', 'Departamento Removido!');
     }
 }
