@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Appointments ({{$bookings->count()}})</div>
+                <div class="card-header">Agendamentos ({{$bookings->count()}})</div>
 
                 <form action="{{route('patient')}}" method="GET">
                       <div class="card-header">
@@ -15,7 +15,7 @@
                                 <input type="text" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
                             </div>
                             <div class="col-md-2">
-                              <button type="submit" class="btn btn-primary">Search</button>
+                              <button type="submit" class="btn btn-primary">Buscar por Data</button>
                             </div>
                           </div>
                     </div>
@@ -26,13 +26,13 @@
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Photo</th>
-                            <th>Date</th>
-                            <th>User</th>
+                            <th>Foto</th>
+                            <th>Data</th>
+                            <th>Usuário</th>
                             <th>E-Mail</th>
-                            <<th>Phone</th>
-                            <th>Time</th>
-                            <th>Doctor</th>
+                            <<th>Telefone</th>
+                            <th>Horário</th>
+                            <th>Médico</th>
                             <th>Status</th>
                           </tr>
                         </thead>
@@ -51,22 +51,22 @@
                             <td>{{ $booking->doctor->name }}</td>
                             <td>
                               @if($booking->status==0)
-                              <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-primary"> Pending</button></a>
+                              <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-primary"> A Confirmar</button></a>
                               @else 
-                               <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-success"> Cheked</button></a>
+                               <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-success"> Confirmado</button></a>
                               @endif
                             </td>
                           </tr>
 
                           @empty
-                          <td>There is no any Appointments Today!</td>
+                          <td>Não há agendamentos para hoje!</td>
 
                           @endforelse
 
 
                         </tbody>
                       </table>
-                      {{$bookings->links()}}
+                      
                 </div>
             </div>
         </div>

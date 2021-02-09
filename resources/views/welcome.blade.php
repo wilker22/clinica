@@ -8,17 +8,19 @@
         </div>
 
         <div class="col-md-6">
-            <h2>Create an acount & Book Appointment</h2>
+            <h2>Registre sua conta e Agende sua consulta</h2>
             <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate quisquam mollitia tenetur est odit delectus modi reprehenderit suscipit, libero optio eum explicabo recusandae asperiores illo, saepe neque, aliquid illum. Blanditiis!
+                Nossa Clínica tem o compromisso em atender bem nossos pacientes, disponibilizando os melhores especilistas para cuidar da sua saúde e da sua família.
+                Após registrar-se e agendar sua consulta, nossa equipe entrará em contato para confirmar sua consulta, após o atendimentos suas prescrições estarão disponíveis 
+                na página do seu perfil.
 
             </p>
             <div class="mt-5">
                 <a href="{{ url('/register')}}">
-                    <button class="btn btn-success">Register as a patient</button>
+                    <button class="btn btn-success">Registrar como PACIENTE</button>
                 </a>
                 <a href="{{ url('/login')}}">
-                    <button class="btn btn-secondary">Login</button>
+                    <button class="btn btn-secondary">Entrar</button>
                 </a>
             </div>
         </div>
@@ -29,14 +31,14 @@
     <form action="{{url('/')}}" method="get">
         <div class="card">
             <div class="card-body">
-                <div class="car-header">Find Doctors</div>
+                <div class="car-header">Pesquisar Médicos (escolha a data)</div>
                 <div class="car-body">
                     <div class="row">
                         <div class="col-md-8">
                             <input type="text" name="date" id="datepicker" class="form-control">
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary">Find Doctors</button>
+                            <button type="submit" class="btn btn-primary">Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -46,16 +48,16 @@
     <!-- display doctors-->
     <div class="card">
         <div class="card-body">
-            <div class="car-header">Doctors</div>
+            <div class="car-header">Médicos</div>
             <div class="car-body">
                 <table class="table table-stripped">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Photo</th>
-                            <th>Name</th>
-                            <th>Expertise</th>
-                            <th>Book</th>
+                            <th>Foto</th>
+                            <th>Nome</th>
+                            <th>Especialidade</th>
+                            <th>Agendamento</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,7 +69,7 @@
                             <td>{{$doctor->doctor->department}}</td>
                             <td>
                                <a href="{{ route('create.appointment', [$doctor->user_id, $doctor->date])}}">
-                                    <button class="btn btn-success">Book appoitment</button>
+                                    <button class="btn btn-success">Agendamentos</button>
                                </a>
                             </td>
                         </tr>

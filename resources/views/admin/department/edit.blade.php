@@ -8,8 +8,8 @@
             <div class="page-header-title">
                 <i class="ik ik-command bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Department</h5>
-                    <span>Update department</span>
+                    <h5>Departmento</h5>
+                    <span>Alterar Departmento</span>
                 </div>
             </div>
         </div>
@@ -19,8 +19,8 @@
                 <li class="breadcrumb-item">
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Department</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Update</li>
+                <li class="breadcrumb-item"><a href="#">Departmento</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Alterar</li>
             </ol>
         </nav>
     </div>
@@ -31,7 +31,7 @@
 	<div class="col-lg-10">
               
 	<div class="card">
-	<div class="card-header"><h3>Add Department</h3></div>
+	<div class="card-header"><h3>Alterar Departamento</h3></div>
 	<div class="card-body">
 		<form class="forms-sample" action="{{route('department.update', $department->id)}}" method="post" >
             @csrf
@@ -40,8 +40,8 @@
 			<div class="row">
 				<div class="col-lg-6">
                     <div class="form-group">
-					    <label for="">Department name</label>
-					    <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" placeholder="department name" value="{{$department->department}}">
+					    <label for="">Departamento</label>
+					    <input type="text" name="department" class="form-control @error('department') is-invalid @enderror" placeholder="Nome do Departamento" value="{{$department->department}}">
                         @error('department')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                         @enderror
 				    </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button type="submit" class="btn btn-primary mr-2">Alterar</button>
                     </div>
             </div>
         </div>

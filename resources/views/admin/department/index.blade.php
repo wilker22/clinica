@@ -8,8 +8,8 @@
         <div class="page-header-title">
             <i class="ik ik-inbox bg-blue"></i>
             <div class="d-inline">
-                <h5>Departments</h5>
-                <span>list of all departments</span>
+                <h5>Departamentos</h5>
+                <span>Lista de Departamentos</span>
             </div>
         </div>
     </div>
@@ -20,9 +20,9 @@
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="#">Department</a>
+                    <a href="#">Departamentos</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Index</li>
+                <li class="breadcrumb-item active" aria-current="page">Início</li>
             </ol>
         </nav>
     </div>
@@ -32,27 +32,33 @@
 
 <div class="row">
 <div class="col-md-12">
+    
        @if(Session::has('message'))
             <div class="alert bg-success alert-success text-white" role="alert">
                 {{Session::get('message')}}
             </div>
         @endif
     <div class="card">
-        <div class="card-header"><h3>Data Table</h3>
-
+        <div class="card-header">
+            
+            <h3>Departamentos Médicos</h3>
+            
+           
         </div>
         <div class="card-body">
             <table id="data_table" class="table">
+                
                 <thead>
                     <tr>
                         <th>SN</th>
-                        <th>Name</th>
+                        <th>Nome</th>
                         
                         <th class="nosort">&nbsp;</th>
                        
                     </tr>
                 </thead>
                 <tbody>
+                    
                     @if(count($departments)>0)
                         @foreach($departments as $key=> $department)
                         <tr>
@@ -74,13 +80,18 @@
                         </tr>
                         @endforeach
                     @else 
-                        <td>No departments to display</td>
+                        <td>Nenhum Departamento Cadastrado!</td>
                     @endif
                 
                 </tbody>
+                
             </table>
+            
         </div>
+        
     </div>
+    
 </div>
+
 </div>
 @endsection

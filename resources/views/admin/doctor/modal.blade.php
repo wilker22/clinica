@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Doctor Information</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Informações do Médico</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -14,17 +14,17 @@
                 <p class="badge badge-pill badge-dark">
                     Role: {{ $doctor->role->name }}
                 </p>
-                <p>Name: {{ $doctor->name }}</p>
-                <p>Email: {{ $doctor->email }}</p>
-                <p>Address: {{ $doctor->address }}</p>
-                <p>Phone Number: {{ $doctor->phone_number }}</p>
-                <p>Department: {{ $doctor->department }}</p>
-                <p>Education: {{ $doctor->education }}</p>
-                <p>Bio: {{ $doctor->description }}</p>
+                <p>Nome: {{ $doctor->name }}</p>
+                <p>E-mail: {{ $doctor->email }}</p>
+                <p>Endereço: {{ $doctor->address }}</p>
+                <p>Telefone: {{ $doctor->phone_number }}</p>
+                <p>Departamento: {{ $doctor->department }}</p>
+                <p>Especilidade: {{ $doctor->education }}</p>
+                <p>Biografia: {{ $doctor->description }}</p>
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
 
         </div>
       </div>

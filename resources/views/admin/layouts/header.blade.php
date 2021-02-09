@@ -43,45 +43,7 @@
                             <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>
                         </div>
                         <div class="top-menu d-flex align-items-center">
-                            <div class="dropdown">
-                                
-                                <div class="dropdown-menu dropdown-menu-right notification-dropdown" aria-labelledby="notiDropdown">
-                                        <h4 class="header">Notificações</h4>
-                                        <div class="notifications-wrap">
-                                            <a href="#" class="media">
-                                                <span class="d-flex">
-                                                    <i class="ik ik-check"></i>
-                                                </span>
-                                                <span class="media-body">
-                                                    <span class="heading-font-family media-heading">Invitation accepted</span>
-                                                    <span class="media-content">Your have been Invited ...</span>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="media">
-                                                <span class="d-flex">
-                                                    <img src="{{asset('template/img/users/1.jpg')}}" class="rounded-circle" alt="">
-                                                </span>
-                                                <span class="media-body">
-                                                    <span class="heading-font-family media-heading">Steve Smith</span>
-                                                    <span class="media-content">I slowly updated projects</span>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="media">
-                                                <span class="d-flex">
-                                                    <i class="ik ik-calendar"></i>
-                                                </span>
-                                                <span class="media-body">
-                                                    <span class="heading-font-family media-heading">To Do</span>
-                                                    <span class="media-content">Meeting with Nathan on Friday 8 AM ...</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="footer"><a href="javascript:void(0);">See all activity</a></div>
-                                    </div>
-                                </div>
-                            <!--<button type="button" class="nav-link ml-10 right-sidebar-toggle"><i class="ik ik-message-square"></i><span class="badge bg-success">3</span></button>-->
                             
-                            <!--<button type="button" class="nav-link ml-10" id="apps_modal_btn" data-toggle="modal" data-target="#appsModal"><i class="ik ik-grid"></i></button>-->
                             <div class="dropdown">
                                 <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <strong>{{strtoupper(Auth()->user()->name)}}</strong>

@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Clinica v1.0') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -47,24 +47,24 @@
 
                         @if(auth()->check() && auth()->user()->role->name === 'patient')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('my.booking') }}">{{ __('My Booking') }}</a>
+                                <a class="nav-link" href="{{ route('my.booking') }}">{{ __('Meus Agendamentos') }}</a>
                             </li>
                         @endif
 
                         @if(auth()->check() && auth()->user()->role->name === 'patient')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('my.prescription') }}">{{ __('My Prescriptions') }}</a>
+                                <a class="nav-link" href="{{ route('my.prescription') }}">{{ __('Minhas Prescrições') }}</a>
                             </li>
                         @endif
 
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a>
                                 </li>
                             @endif
                         @else
@@ -76,9 +76,9 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                     @if(auth()->check() && auth()->user()->role->name === 'patient')
-                                        <a class="dropdown-item" href="{{ url('user-profile') }}">Profile</a>
+                                        <a class="dropdown-item" href="{{ url('user-profile') }}">Perfil</a>
                                     @else
-                                        <a class="dropdown-item" href="{{ url('dashboard') }}">Dashboard</a>
+                                        <a class="dropdown-item" href="{{ url('dashboard') }}">Painel</a>
                                     @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
