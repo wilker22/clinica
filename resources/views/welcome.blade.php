@@ -74,7 +74,7 @@
                             </td>
                         </tr>
                         @empty
-                        <td>Nunhum Médico agendado para hoje!!</td>
+                        <td>Nunhum Médico agendado para esta data, escolha uma nova data!!</td>
                         @endforelse
                     </tbody>
 

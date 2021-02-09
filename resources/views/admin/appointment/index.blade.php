@@ -9,7 +9,7 @@
                 <i class="ik ik-edit bg-blue"></i>
                 <div class="d-inline">
                     <h5>Agendamentos</h5>
-                    <span>Adicionar Agendamento</span>
+                    <span>Lista de Agendamentos</span>
                 </div>
             </div>
         </div>
@@ -60,9 +60,9 @@
                 @endif
             </div>
             <div class="card-body">
-                <input type="text" name="date" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
+                <input type="text" name="date" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker">
                <br>
-                <button type="submit" class="btn btn-primary">Check</button>
+                <button type="submit" class="btn btn-primary">Confirmar</button>
             </div>
         </div>
     </form>
@@ -72,8 +72,8 @@
             @csrf
                 <div class="card">
                     <div class="card-header">
-                        Choose AM Time
-                        <span style="margin-left: 700px">Check/Uncheck
+                        Horários: Manhã
+                        <span style="margin-left: 700px">Confirma/Cancela
                             <input type="checkbox" onclick="for(c in
                                         document.getElementsByName('time[]'))
                                         document.getElementsByName('time[]').item(c).checked=this.checked">
@@ -133,7 +133,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        Choose PM Time
+                        Horários: Tarde
                     </div>
                     <div class="card-body">
                         <table class="table table-striped">

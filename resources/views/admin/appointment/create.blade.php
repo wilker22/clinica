@@ -9,7 +9,7 @@
                 <i class="ik ik-edit bg-blue"></i>
                 <div class="d-inline">
                     <h5>Agendamentos</h5>
-                    <span>Adicionar Agendamento</span>
+                    <span>Cadastrar Agendamento</span>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
                         <a href="../index.html"><i class="ik ik-home"></i></a>
                     </li>
                     <li class="breadcrumb-item"><a href="#">Agedamentos</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Marcar</li>
+                    <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
                 </ol>
             </nav>
         </div>
@@ -49,7 +49,7 @@
             Escolher Data
         </div>
         <div class="card-body">
-            <input type="text" name="date" class="form-control" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
+            <input type="text" name="date" class="form-control" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker">
         </div>
     </div>
 
@@ -168,7 +168,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <button type="submit" class="btn btn-primary">Gravar</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
     </div>
 </form>

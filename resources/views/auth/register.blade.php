@@ -62,13 +62,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gênero') }}</label>
 
                             <div class="col-md-6">
                                 <select name="gender" id="gender" class="form-control @error('gender') is-invalid @enderror">
-                                    <option value="">Select Gender...</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                    <option value="">Selecione...</option>
+                                    <option value="male">Masculino</option>
+                                    <option value="female">Feminino</option>
                                 </select>
                             </div>
 

@@ -8,8 +8,8 @@
             <div class="page-header-title">
                 <i class="ik ik-edit bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Doctors</h5>
-                    <span>Add Doctor</span>
+                    <h5>Médicos</h5>
+                    <span>Cadastrar Médico</span>
                 </div>
             </div>
         </div>
@@ -19,8 +19,8 @@
                     <li class="breadcrumb-item">
                         <a href="../index.html"><i class="ik ik-home"></i></a>
                     </li>
-                    <li class="breadcrumb-item"><a href="#">Doctor</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Create</li>
+                    <li class="breadcrumb-item"><a href="#">Médico</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
                 </ol>
             </nav>
         </div>
@@ -38,15 +38,15 @@
 
         <div class="card">
             <div class="card-header">
-                <h3>Add Doctor</h3>
+                <h3>Cadastrar Médico</h3>
             </div>
                 <div class="card-body">
                     <form action="{{ route('doctor.store') }}" method="POST" enctype="multipart/form-data" class="form-sample">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">
-                                <label for="">Full Name</label>
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Doctor name" value="{{ old('name') }}">
+                                <label for="">Nome</label>
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Nome completo" value="{{ old('name') }}">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
 
                             <div class="col-lg-6">
                                 <label for="">E-mail</label>
-                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Doctor e-mail" value="{{ old('email') }}">
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" value="{{ old('email') }}">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -69,8 +69,8 @@
 
                         <div class="row">
                             <div class="col-lg-6">
-                                <label for="">Password</label>
-                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Doctor Password">
+                                <label for="">Senha</label>
+                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Senha">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -80,11 +80,11 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <label for="">Gender</label>
+                                <label for="">Gênero</label>
                                 <select name="gender" id="gender" class="form-control @error('gender') is-invalid @enderror">
-                                    <option value="">Select Gender...</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                    <option value="">Gênero...</option>
+                                    <option value="male">Masculino</option>
+                                    <option value="female">Feminino</option>
                                 </select>
 
                                 @error('gender')
@@ -97,8 +97,8 @@
 
                         <div class="row">
                             <div class="col-lg-6">
-                                <label for="">Education</label>
-                                <input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="Doctor Highest Degree" value="{{ old('education') }}">
+                                <label for="">Especilidade</label>
+                                <input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="Especilidade" value="{{ old('education') }}">
                                 @error('education')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -107,8 +107,8 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <label for="">Address</label>
-                                <input type="text" name="address" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="Doctor Address" value="{{ old('address') }}" ></input>
+                                <label for="">Endereço</label>
+                                <input type="text" name="address" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="Endereço" value="{{ old('address') }}" ></input>
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -119,9 +119,9 @@
 
                         <div class="row">
                             <div class="col-lg-6">
-                                <label for="">Specilist</label>
+                                <label for="">Departamento</label>
                                 <select name="department" class="form-control" id="department">
-                                    <option value="">Please Select...</option>
+                                    <option value="">Selecione...</option>
                                     @foreach(App\Department::all() as $department)
                                         <option value="{{$department->department}}">{{$department->department}}</option>
                                     @endforeach
@@ -134,8 +134,8 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <label for="">Phone Number</label>
-                                <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="Doctor Address" value="{{ old('phone_number') }}" ></input>
+                                <label for="">Telefone</label>
+                                <input type="text" name="phone_number" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="Telefone" value="{{ old('phone_number') }}" ></input>
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -147,7 +147,7 @@
                         <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Image</label>
+                                        <label>Foto</label>
                                         <input type="file" class="form-control file-upload-info @error('image') is-invalid @enderror"  placeholder="Upload Image" name="image">
                                         <span class="input-group-append">
 
@@ -160,9 +160,9 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="role_id">Role</label>
+                                    <label for="role_id">Perfil</label>
                                     <select name="role_id" id="role_id" class="form-control @error('role_id') is-invalid @enderror">
-                                        <option value="">Select Role...</option>
+                                        <option value="">Selecione...</option>
                                         @foreach ($roles as $role)
                                             <option value="{{ $role->id }}">{{ $role->name }}</option>
                                         @endforeach
@@ -177,7 +177,7 @@
 
 
                         <div class="form-group">
-                            <label for="exampleTextarea1">About</label>
+                            <label for="exampleTextarea1">Descrição</label>
                             <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="4">{{ old('description') }}                                   </textarea>
 
                             @error('description')
@@ -189,8 +189,8 @@
 
                         </div>
 
-                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                            <button class="btn btn-light">Cancel</button>
+                            <button type="submit" class="btn btn-primary mr-2">Cadastrar</button>
+                            <button class="btn btn-light">Cancelar</button>
                     </form>
                 </div>
             </div>

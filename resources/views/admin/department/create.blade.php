@@ -9,7 +9,7 @@
                 <i class="ik ik-command bg-blue"></i>
                 <div class="d-inline">
                     <h5>Departamentos</h5>
-                    <span>Adicionar Departamento</span>
+                    <span>Cadastrar Departamento</span>
                 </div>
             </div>
         </div>
@@ -20,7 +20,7 @@
                     <a href="../index.html"><i class="ik ik-home"></i></a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">Departamentos</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Criar Novo</li>
+                <li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
             </ol>
         </nav>
     </div>
@@ -36,7 +36,7 @@
         @endif
        
 	<div class="card">
-	<div class="card-header"><h3>Adicionar Departamento</h3></div>
+	<div class="card-header"><h3>Cadastrar Departamento</h3></div>
 	<div class="card-body">
 		<form class="forms-sample" action="{{route('department.store')}}" method="post" >@csrf
 			<div class="row">

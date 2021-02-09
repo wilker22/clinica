@@ -5,19 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">My Prescriptions</div>
+                <div class="card-header">Minhas Prescrições</div>
 
                 <div class="card-body">
                     <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th scope="col">Date</th>
-                            <th scope="col">Doctor</th>
-                            <th scope="col">Disease</th>
-                            <th scope="col">Symptoms</th>
-                            <th scope="col">Medicine</th>
-                            <th scope="col">Procedure to use medicine</th>
-                            <th scope="col">Doctor Feedback</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Médico</th>
+                            <th scope="col">Doença</th>
+                            <th scope="col">Sintomas</th>
+                            <th scope="col">Medicamentos</th>
+                            <th scope="col">Como usar os medicamentos:</th>
+                            <th scope="col">Diagnóstico do Médico</th>
                             
                           </tr>
                         </thead>
@@ -33,7 +33,7 @@
                                 <td>{{ $prescription->feedback }}</td>
                               </tr>      
                             @empty
-                                <td>You have no prescriptions</td>
+                                <td>Você ainda não tem prescrições</td>
                             @endforelse
                         </tbody>
                       </table>

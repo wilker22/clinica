@@ -6,12 +6,12 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="text-center">Doctor Information</h4>
+                    <h4 class="text-center">Informações do Médico</h4>
                         <img src="{{asset('images')}}/{{$user->image}}" width="100px" style="border-radius: 50%;" alt="">
                     <br>
-                    <p class="lead">Name : {{ucfirst($user->name)}}</p>
-                    <p class="lead">Degree: {{ucfirst($user->education)}}</p>
-                    <p class="lead">Expertise: {{ucfirst($user->department)}}</p>
+                    <p class="lead">Nome : {{ucfirst($user->name)}}</p>
+                    <p class="lead">Especialidade: {{ucfirst($user->education)}}</p>
+                    <p class="lead">Departamento: {{ucfirst($user->department)}}</p>
 
                 </div>
             </div>
@@ -56,12 +56,12 @@
                         </div>
                         <div class="card-footer">
                             @if (Auth::check())
-                                <button type="submit" class="btn btn-success" style="width: 100%;">Book Appointment</button>
+                                <button type="submit" class="btn btn-success" style="width: 100%;">Agendamentos</button>
 
                             @else
-                                <p>Please login to make as appointment</p>
-                                <button class="btn btn-success"><a href="{{url('register')}}">Register</a></button>
-                                <button class="btn btn-secondary"><a href="{{url('login')}}">Login</a>
+                                <p>Faça Login para efetuar agendamentos</p>
+                                <button class="btn btn-success"><a href="{{url('register')}}">Registre-se</a></button>
+                                <button class="btn btn-secondary"><a href="{{url('login')}}">Entre</a>
                             @endif
 
                         </div>

@@ -85,7 +85,7 @@
 
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header">Update Image</div>
+                <div class="card-header">Alterar foto</div>
 
                 <form action="{{ route('profile.pic') }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -103,7 +103,7 @@
                             </span>
                         @enderror
                         <br>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Alterar</button>
 
                     </div>
                 </form>

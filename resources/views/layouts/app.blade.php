@@ -120,7 +120,7 @@
             background: #fff;
         }
         .ui-corner-all{
-            background: rgb(41, 156, 18);
+            background: rgb(40, 185, 123);
             color: #fff;
         }
 
@@ -144,6 +144,12 @@
             background-color: rgb(80,110,228);
             color: #fff;
         }
+
+        .navbar{
+        background:#1EAACE!important;
+        color: #fff!important;
+        }
+
     </style>
 
 </body>
