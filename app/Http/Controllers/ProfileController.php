@@ -18,9 +18,8 @@ class ProfileController extends Controller
             'name' => 'required',
             'gender' => 'required'
         ]);
-
+        
         User::where('id', auth()->user()->id)->update($request->except('_token'));
-
         return redirect()->back()->with('message', 'User updated!!');
     }
 
