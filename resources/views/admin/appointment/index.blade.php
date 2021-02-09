@@ -8,8 +8,8 @@
             <div class="page-header-title">
                 <i class="ik ik-edit bg-blue"></i>
                 <div class="d-inline">
-                    <h5>Appointments</h5>
-                    <span>Add Appointment</span>
+                    <h5>Agendamentos</h5>
+                    <span>Adicionar Agendamento</span>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                     <li class="breadcrumb-item">
                         <a href="../index.html"><i class="ik ik-home"></i></a>
                     </li>
-                    <li class="breadcrumb-item"><a href="#">Appointments</a></li>
+                    <li class="breadcrumb-item"><a href="#">Agendamentos</a></li>
                     <!--<li class="breadcrumb-item active" aria-current="page">Create</li>-->
                 </ol>
             </nav>
@@ -52,11 +52,11 @@
 
         <div class="card">
             <div class="card-header">
-                Choose Date
+                Selecione a data
                 <br>
 
                 @if (isset($date))
-                Your timetable for: {{$date}}
+                Seus horários para: {{$date}}
                 @endif
             </div>
             <div class="card-body">

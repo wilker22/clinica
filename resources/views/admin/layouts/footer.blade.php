@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="w-100 clearfix">
-        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2018 ThemeKit v2.0. All Rights Reserved.</span>
-        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://lavalite.org/" class="text-dark" target="_blank">Lavalite</a></span>
+        <span class="text-center text-sm-left d-md-inline-block">Clinica v1.0 - Todos os Direitos Reservados.</span>
+        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Desenvolvido <i class="fa fa-laptop text-danger"></i> por <a href="http://wtech.com/" class="text-dark" target="_blank">WTech - Consultoria em TI</a></span>
     </div>
 </footer>
 
@@ -120,13 +120,21 @@
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 
 <!--datepicker-->
-<script>
-    $(document).ready(function(){
-        $("#datepicker").datetimepicker({
-            format: 'DD-MM-YYYY'
-        })
-    })
+
+<script type="text/javascript">
+    var dateToday = new Date();
+        $( function() {
+            $("#datepicker").datepicker({
+                dateFormat: "dd/mm/yy",
+                showButtonPanel: true,
+                numberOfMonths: 2,
+                minDate: dateToday
+            });
+        });
 </script>
+
+
+   
 
 <script>
 (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
