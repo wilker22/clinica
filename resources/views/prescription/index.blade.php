@@ -11,7 +11,7 @@
               @endif
               <div class="card-header" >
        
-                     Appointment ({{$bookings->count()}})
+                     Agendamentos ({{$bookings->count()}})
                  </div>
 
                 <div class="card-body">
@@ -19,17 +19,17 @@
                       <thead>
                         <tr>
                           <th scope="col">#</th>
-                          <th scope="col">Photo</th>
-                          <th scope="col">Date</th>
-                          <th scope="col">User</th>
+                          <th scope="col">Foto</th>
+                          <th scope="col">Data</th>
+                          <th scope="col">Usuário</th>
                           <th scope="col">Email</th>
-                          <th scope="col">Phone</th>
-                          <th scope="col">Gender</th>
+                          <th scope="col">Telefone</th>
+                          <th scope="col">Gênero</th>
 
-                          <th scope="col">Time</th>
-                          <th scope="col">Doctor</th>
+                          <th scope="col">Horário</th>
+                          <th scope="col">Médico</th>
                           <th scope="col">Status</th>
-                          <th scope="col">Prescription</th>
+                          <th scope="col">Prescrição</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -49,7 +49,7 @@
                           <td>{{$booking->doctor->name}}</td>
                           <td>
                             @if($booking->status==1)
-                             checked
+                             Prescrito
                              @endif
                           </td>
                           <td>
@@ -57,19 +57,19 @@
                        
                 @if(!App\Prescription::where('date',date('Y-m-d'))->where('doctor_id',auth()->user()->id)->where('user_id',$booking->user->id)->exists())
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$booking->user_id}}">
-                                Write prescription
+                                Prescrever
                     </button>
                     @include('prescription.form')
 
                     @else 
-                   <a href="{{route('prescription.show',[$booking->user_id,$booking->date])}}" class="btn btn-secondary">View prescription</a>
+                   <a href="{{route('prescription.show',[$booking->user_id,$booking->date])}}" class="btn btn-secondary">Ver Prescrição</a>
                     @endif
 
                                
                           </td>
                         </tr>
                         @empty
-                        <td>There is no any appointments !</td>
+                        <td>Não há agendamentos para hoje!</td>
                         @endforelse
                        
                       </tbody>

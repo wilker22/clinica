@@ -1,38 +1,38 @@
 @extends('admin.layouts.master')
-
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Appointments ({{$bookings->count()}})</div>
+                <div class="card-header">Agendamentos ({{$bookings->count()}})</div>
 
-                <form action="{{route('patient')}}" method="GET">
+                <!--<form action="{{route('patient')}}" method="GET">
                       <div class="card-header">
-                          Filter   
+                          Filtrar por data:   
                           <div class="row">
                             <div class="col-md-10">
                                 <input type="text" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
                             </div>
                             <div class="col-md-2">
-                              <button type="submit" class="btn btn-primary">Search</button>
+                              <button type="submit" class="btn btn-primary">Buscar</button>
                             </div>
                           </div>
                     </div>
-                </form>
+                </form>-->
 
                 <div class="card-body">
                     <table class="table table-striped">
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Photo</th>
-                            <th>Date</th>
-                            <th>User</th>
+                            <th>Foto</th>
+                            <th>Data</th>
+                            <th>Usuário</th>
                             <th>E-Mail</th>
-                            <<th>Phone</th>
-                            <th>Time</th>
-                            <th>Doctor</th>
+                            <<th>Telefone</th>
+                            <th>Horário</th>
+                            <th>Médico</th>
                             <th>Status</th>
                           </tr>
                         </thead>
@@ -51,15 +51,15 @@
                             <td>{{ $booking->doctor->name }}</td>
                             <td>
                               @if($booking->status==0)
-                              <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-primary"> Pending</button></a>
+                              <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-primary"> A confirmar</button></a>
                               @else 
-                               <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-success"> Cheked</button></a>
+                               <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-success"> Confirmado</button></a>
                               @endif
                             </td>
                           </tr>
 
                           @empty
-                          <td>There is no any Appointments Today!</td>
+                          <td>Não há agendamentos para hoje!</td>
 
                           @endforelse
 

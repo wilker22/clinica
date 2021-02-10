@@ -9,7 +9,7 @@
 
                 <form action="{{route('patient')}}" method="GET">
                       <div class="card-header">
-                          Filter   
+                          Filtro   
                           <div class="row">
                             <div class="col-md-10">
                                 <input type="text" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date">
