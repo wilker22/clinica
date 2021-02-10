@@ -69,7 +69,7 @@
                             <td>{{$doctor->doctor->department}}</td>
                             <td>
                                <a href="{{ route('create.appointment', [$doctor->user_id, $doctor->date])}}">
-                                    <button class="btn btn-success">Agendamentos</button>
+                                    <button class="btn btn-success">Horários Disponíveis</button>
                                </a>
                             </td>
                         </tr>

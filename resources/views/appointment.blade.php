@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    {{ dd($user)}}
+    
     <div class="row">
         <div class="col-md-3">
             <div class="card">
@@ -57,7 +57,7 @@
                         </div>
                         <div class="card-footer">
                             @if (Auth::check())
-                                <button type="submit" class="btn btn-success" style="width: 100%;">Agendamentos</button>
+                                <button type="submit" class="btn btn-success" style="width: 100%;">Agendar</button>
 
                             @else
                                 <p>Faça Login para efetuar agendamentos</p>
