@@ -46,7 +46,7 @@
                             <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Médicos - Agendamentos</span></a>
                             <div class="submenu-content">
                                 <a href="{{ route('appointment.create') }}" class="menu-item">Criar</a>
-                                <a href="{{ route('appointment.index') }}" class="menu-item">Confirmar</a>
+                                <a href="{{ route('appointment.index') }}" class="menu-item">Horários Agendados</a>
                             </div>
                         </div>
                     @endif
