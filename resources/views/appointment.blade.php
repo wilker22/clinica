@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    {{ dd($user)}}
     <div class="row">
         <div class="col-md-3">
             <div class="card">

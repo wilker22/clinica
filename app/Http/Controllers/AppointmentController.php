@@ -98,8 +98,10 @@ class AppointmentController extends Controller
 
     }
 
+       
     public function updateTime(Request $request)
     {
+        
         $appointmentId = $request->appointmentId;
         $appointment = Time::where('appointment_id', $appointmentId)->delete();
 
