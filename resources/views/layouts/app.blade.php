@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Clínica v1.0') }}</title>
 
 
     <!-- Scripts -->
@@ -148,6 +148,7 @@
         .navbar{
         background:#1EAACE!important;
         color: #fff!important;
+        font-weight: bold;
         }
 
     </style>

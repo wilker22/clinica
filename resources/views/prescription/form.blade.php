@@ -17,40 +17,40 @@
             <input type="hidden" name="doctor_id" value="{{$booking->doctor_id}}">
             <input type="hidden" name="date" value="{{$booking->date}}">
             <div class="form-group">
-              <label for="">Disease</label>
-              <input type="text" name="name_of_disease" class="form-control" placeholder="Disease">
+              <label for="">C.I.D. (Código e Descrição)</label>
+              <input type="text" name="name_of_disease" class="form-control" placeholder="CID">
             </div>
 
             <div class="form-group">
-              <label for="">Symptoms</label>
-              <textarea name="symptoms" class="form-control" required placeholder="Symptoms"></textarea>
+              <label for="">Sintomas</label>
+              <textarea name="symptoms" class="form-control" required placeholder="Sintomas"></textarea>
             </div>
 
             <div class="form-group">
-              <label for="">Medicine</label>
+              <label for="">Meciamentos</label>
               <add-btn></add-btn>
             </div>
 
             <div class="form-group">
-              <label for="">Procedure to use medicine</label>
-              <textarea name="procedure_to_use_medicine" class="form-control" required placeholder="Procedures with medicines"></textarea>
+              <label for="">Procedimento para tomar a medicação:</label>
+              <textarea name="procedure_to_use_medicine" class="form-control" required placeholder="Procedimentos para tomar a medicação"></textarea>
             </div>
 
             <div class="form-group">
-              <label for="">Feedback</label>
-              <textarea cols="30" rows=3" name="feedback" class="form-control" placeholder="Feedback"></textarea>
+              <label for="">Diagnóstico Médico</label>
+              <textarea cols="30" rows=3" name="feedback" class="form-control" placeholder="Diagnóstico"></textarea>
             </div>
 
             <div class="form-group">
-              <label for="">Signature</label>
+              <label for="">C.R.M.</label>
               <input type="text" name="signature" class="form-control" required>
             </div>
 
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary">Gravar</button>
           </div>
         </div>
     </form>

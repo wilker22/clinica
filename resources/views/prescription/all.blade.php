@@ -7,7 +7,7 @@
              
               <div class="card-header" >
        
-                     Appointment ({{$patients->count()}})
+                     Agendamentos ({{$patients->count()}})
                  </div>
 
                 <div class="card-body">
@@ -15,17 +15,17 @@
                       <thead>
                         <tr>
                           <th scope="col">#</th>
-                          <th scope="col">Photo</th>
-                          <th scope="col">Date</th>
-                          <th scope="col">User</th>
+                          <th scope="col">Foto</th>
+                          <th scope="col">Data</th>
+                          <th scope="col">Usuário</th>
                           <th scope="col">Email</th>
-                          <th scope="col">Phone</th>
-                          <th scope="col">Gender</th>
+                          <th scope="col">Telefone</th>
+                          <th scope="col">Gênero</th>
 
-                          <th scope="col">Time</th>
-                          <th scope="col">Doctor</th>
+                          <th scope="col">Horário</th>
+                          <th scope="col">Médico</th>
                           <th scope="col">Status</th>
-                          <th scope="col">Prescription</th>
+                          <th scope="col">Prescrição</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -33,7 +33,7 @@
                         <tr>
                           <th scope="row">{{$key+1}}</th>
                           <td>
-                            <img src="/profile/{{$patient->user->image}}" width="80" style="border-radius: 50%;">
+                            <img src="localhost/doctor/public/profile/{{$patient->user->image}}" width="80" style="border-radius: 50%;">
                           </td>
                           <td></td>
                           <td>{{$patient->user->name}}</td>

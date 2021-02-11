@@ -12,7 +12,7 @@
           <p>
               <img src="{{ asset('images')}}/{{$doctor->image}}" width="200" alt="">
                 <p class="badge badge-pill badge-dark">
-                    Role: {{ $doctor->role->name }}
+                    Perfil: {{ $doctor->role->name }}
                 </p>
                 <p>Nome: {{ $doctor->name }}</p>
                 <p>E-mail: {{ $doctor->email }}</p>

@@ -6,20 +6,20 @@
             <div class="card">
              
               <div class="card-header" >
-       
+                <H4>PRESCRIÇÃO</H4>
                     
                 </div>
 
                 <div class="card-body">
-                    <p>Date:{{$prescription->date}}</p>
-                    <p>Patient:{{$prescription->user->name}}</p>
-                    <p>Doctor:{{$prescription->doctor->name}}</p>
-                    <p>Disease:{{$prescription->name_of_disease}}</p>
-                    <p>Symptoms:{{$prescription->symptoms}}</p>
-                    <p>Medicine:{{$prescription->medicine}}</p>
-                    <p>Proedure to use medicine:{{$prescription->procedure_to_use_medicine}}</p>
-                    <p>Feedback:{{$prescription->feedback}}</p>
-                    <p>Doctor signature:{{$prescription->signature}}</p>
+                    <p><b>Data: </b> {{$prescription->date}}</p>
+                    <p><b>Paciente: </b> {{$prescription->user->name}}</p>
+                    <p><b>Médico: </b> {{$prescription->doctor->name}}</p>
+                    <p><b>C.I.D.: </b> {{$prescription->name_of_disease}}</p>
+                    <p><b>Sintomas: </b> {{$prescription->symptoms}}</p>
+                    <p><b>Medicamentos: </b> {{$prescription->medicine}}</p>
+                    <p><b>Procedimentos para administração:</b> {{$prescription->procedure_to_use_medicine}}</p>
+                    <p><b>Diagnóstico: </b> {{$prescription->feedback}}</p>
+                    <p><b>C.R.M.: </b> {{$prescription->signature}}</p>
 
                   
                 </div>

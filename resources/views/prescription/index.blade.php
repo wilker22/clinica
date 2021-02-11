@@ -36,7 +36,7 @@
                         @forelse($bookings as $key=>$booking)
                         <tr>
                           <th scope="row">{{$key+1}}</th>
-                          <td><img src="/profile/{{$booking->user->image}}" width="80" style="border-radius: 50%;">
+                          <td><img src="{{asset('/profile')}}/{{$booking->user->image}}" width="80" style="border-radius: 50%;">
                           </td>
                           <td>
                              {{$booking->date}}                            
@@ -55,7 +55,7 @@
                           <td>
                               <!-- Button trigger modal -->
                        
-                @if(!App\Prescription::where('date',date('Y-m-d'))->where('doctor_id',auth()->user()->id)->where('user_id',$booking->user->id)->exists())
+                @if(!App\Prescription::where('date',date('d-m-Y'))->where('doctor_id',auth()->user()->id)->where('user_id',$booking->user->id)->exists())
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$booking->user_id}}">
                                 Prescrever
                     </button>
