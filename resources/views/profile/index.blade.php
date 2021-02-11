@@ -13,29 +13,29 @@
 
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header">User Profile</div>
+                <div class="card-header">Perfil do Paciente</div>
 
                 <div class="card-body">
-                    <p>Name: {{ auth()->user()->name }}</p>
+                    <p>Nome: {{ auth()->user()->name }}</p>
                     <p>E-mail: {{ auth()->user()->email }}</p>
-                    <p>Address: {{ auth()->user()->address }}</p>
-                    <p>Phone: {{ auth()->user()->phone_number }}</p>
-                    <p>Gender: {{ auth()->user()->gender }}</p>
-                    <p>Bio: {{ auth()->user()->description }}</p>
+                    <p>Endereço: {{ auth()->user()->address }}</p>
+                    <p>Telefone: {{ auth()->user()->phone_number }}</p>
+                    <p>Gênero: {{ auth()->user()->gender }}</p>
+                    <p>Descrição: {{ auth()->user()->description }}</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Update Profile</div>
+                <div class="card-header">Alterar Dados</div>
 
                 <div class="card-body">
                     <form action="{{ route('profile.store') }}" method="post">
                         @csrf
 
                         <div class="form-group">
-                            <label for="">Name</label>
+                            <label for="">Nome</label>
                             <input type="text" name="name" class="form-control @error('name') is-valid @enderror" value="{{ auth()->user()->name }}">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -45,21 +45,21 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Address</label>
+                            <label for="">Endereço</label>
                             <input type="text" name="address" class="form-control" value="{{ auth()->user()->address }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Phone</label>
+                            <label for="">Telefone</label>
                             <input type="text" name="phone_number" class="form-control" value="{{ auth()->user()->phone_number }}">
                         </div>
 
                         <div class="form-group">
-                            <label for="">Gender</label>
+                            <label for="">Gênero</label>
                             <select name="gender" id="gender" class="form-control  @error('gender') is-valid @enderror">
-                                <option value="">Select gender...</option>
-                                <option value="male" @if(auth()->user()->gender==='male') selected @endif>Male</option>
-                                <option value="female" @if(auth()->user()->gender==='female') selected @endif>Female</option>
+                                <option value="">Selecione...</option>
+                                <option value="male" @if(auth()->user()->gender==='male') selected @endif>Masculino</option>
+                                <option value="female" @if(auth()->user()->gender==='female') selected @endif>Feminino</option>
                             </select>
                             @error('gender')
                                 <span class="invalid-feedback" role="alert">
@@ -69,14 +69,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Bio</label>
+                            <label for="">Descrição</label>
                             <textarea name="description" id="" cols="30" rows="5" class="form-control">
                                 {{ auth()->user()->description }}
                             </textarea>
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Update</button>
+                            <button class="btn btn-primary" type="submit">Gravar</button>
                         </div>
                     </form>
                 </div>
@@ -103,7 +103,7 @@
                             </span>
                         @enderror
                         <br>
-                        <button type="submit" class="btn btn-primary">Alterar</button>
+                        <button type="submit" class="btn btn-primary">Gravar</button>
 
                     </div>
                 </form>
